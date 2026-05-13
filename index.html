@@ -433,6 +433,38 @@
       .hero-content { padding: 24px 24px 60px; }
     }
 
+    /* ── VÍDEO ── */
+    .video-section {
+      background: var(--verde-oscuro);
+      padding: 100px 40px;
+    }
+
+    .video-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      .video-section { padding: 80px 24px; }
+    }
+
     /* ── REVEAL ── */
     .reveal {
       opacity: 0;
@@ -524,6 +556,20 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VÍDEO ── -->
+  <section class="video-section">
+    <div class="video-inner reveal">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/a5Vs14ylVKk"
+          title="Vídeo promocional — Aceite y Sangre"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
