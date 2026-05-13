@@ -166,8 +166,16 @@
       max-width: 380px;
     }
 
-    .btn-comprar {
+    /* ── DROPDOWN COMPRAR ── */
+    .btn-dropdown-wrap {
+      position: relative;
       display: inline-block;
+    }
+
+    .btn-comprar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-family: 'Jost', sans-serif;
       font-weight: 500;
       font-size: 0.85rem;
@@ -178,11 +186,63 @@
       background: var(--verde-oscuro);
       padding: 16px 40px;
       border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-comprar:hover {
       background: var(--verde-medio);
+    }
+
+    .btn-comprar .arrow {
+      font-size: 0.65rem;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-comprar.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background: #fff;
+      border: 1px solid rgba(26,42,16,0.12);
+      border-radius: 3px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      min-width: 100%;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .dropdown-menu.open {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--tinta);
+      padding: 13px 24px;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a + a {
+      border-top: 1px solid rgba(26,42,16,0.07);
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--crema-suave);
+      color: var(--verde-oscuro);
     }
 
     .btn-group {
@@ -492,7 +552,15 @@
       <div class="hero-divider"></div>
       <p class="hero-tagline">«A veces la vida no avisa: te empuja.<br>Y solo te queda seguir.»</p>
       <div class="btn-group">
-        <a href="https://www.laclandestina.es/lote.php?ref=B1776769543641&art=aceite-sangre-voces-sanacion-rosa-maria-cordoba" target="_blank" rel="noopener" class="btn-comprar">Libro físico</a>
+        <div class="btn-dropdown-wrap">
+          <button class="btn-comprar" onclick="toggleDropdown(this)">Dónde comprar <span class="arrow">▼</span></button>
+          <div class="dropdown-menu">
+            <a href="https://www.laclandestina.es/lote.php?ref=B1776769543641&art=aceite-sangre-voces-sanacion-rosa-maria-cordoba" target="_blank" rel="noopener">La Clandestina</a>
+            <a href="https://www.fnac.es/a13119190/Rosa-Maria-Cordoba-Aceite-Y-Sangre" target="_blank" rel="noopener">Fnac</a>
+            <a href="https://www.agapea.com/libros/Aceite-y-Sangre-9791370468224-i.htm" target="_blank" rel="noopener">Agapea</a>
+            <a href="https://libros.cc/Aceite-Sangre.htm?isbn=9791370468224" target="_blank" rel="noopener">Libros CC</a>
+          </div>
+        </div>
         <div class="btn-ebook-wrap">
           <a href="#ENLACE-EBOOK" class="btn-ebook">Ebook</a>
           <span class="btn-ebook-badge">Próximamente</span>
@@ -585,6 +653,22 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function toggleDropdown(btn) {
+      const menu = btn.nextElementSibling;
+      const isOpen = menu.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) { menu.classList.add('open'); btn.classList.add('open'); }
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.dropdown-menu.open').forEach(m => m.classList.remove('open'));
+      document.querySelectorAll('.btn-comprar.open').forEach(b => b.classList.remove('open'));
+    }
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.btn-dropdown-wrap')) closeAllDropdowns();
+    });
   </script>
 </body>
 </html>
