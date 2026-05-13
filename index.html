@@ -271,9 +271,12 @@
       border: 1px solid rgba(52,79,30,0.35);
       padding: 16px 40px;
       border-radius: 2px;
-      cursor: default;
-      pointer-events: none;
-      opacity: 0.6;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-ebook:hover {
+      background: var(--crema-oscura);
+      color: var(--verde-oscuro);
     }
 
     .btn-ebook-badge {
@@ -627,8 +630,7 @@
               </div>
             </div>
             <div class="btn-ebook-wrap">
-              <a href="#ENLACE-EBOOK" class="btn-ebook">Ebook</a>
-              <span class="btn-ebook-badge">Próximamente</span>
+              <a href="https://www.casadellibro.com/ebook-aceite-y-sangre-ebook/9791370467517/18158358" target="_blank" rel="noopener" class="btn-ebook">Ebook</a>
             </div>
           </div>
         </div>
