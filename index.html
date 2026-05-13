@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aceite y Sangre — Rosa María Córdoba</title>
+  <meta name="description" content="Aceite y Sangre. Voces de sanación. La historia de una mujer que aprendió a cuidar de todos… y por fin de sí misma. Libro de Rosa María Córdoba." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aceite y Sangre — Rosa María Córdoba" />
+  <meta property="og:description" content="La historia de una mujer que aprendió a cuidar de todos… y por fin de sí misma. Disponible en La Clandestina." />
+  <meta property="og:image" content="https://NETLIFY-URL/images/og-cover.jpg" />
+  <meta property="og:url" content="https://NETLIFY-URL/" />
+  <meta property="og:locale" content="es_ES" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aceite y Sangre — Rosa María Córdoba" />
+  <meta name="twitter:description" content="La historia de una mujer que aprendió a cuidar de todos… y por fin de sí misma." />
+  <meta name="twitter:image" content="https://NETLIFY-URL/images/og-cover.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde-oscuro: #1A2A10;
+      --verde-medio: #344F1E;
+      --verde-claro: #6B9448;
+      --crema: #F4EDD3;
+      --crema-suave: #FBF7ED;
+      --crema-oscura: #E6DAB8;
+      --tinta: #1A1C14;
+      --tinta-mid: #3D4030;
+      --blanco: #FEFCF5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--crema-suave);
+      color: var(--tinta);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--crema-suave);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(107,148,72,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ── OLIVOS ── */
+    .olivos {
+      width: 100%;
+      height: 45vh;
+      min-height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .olivos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .olivos-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+      background: linear-gradient(to top, rgba(18,30,10,0.6) 0%, rgba(18,30,10,0.2) 50%, transparent 100%);
+    }
+
+    .olivos-overlay p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: #fff;
+      text-align: center;
+      max-width: 580px;
+      line-height: 1.65;
+    }
+
+    .hero-book {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px 60px 80px;
+    }
+
+    .hero-book img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 4px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.3);
+      display: block;
+    }
+
+    .hero-content {
+      padding: 60px 80px 60px 40px;
+      color: var(--tinta);
+    }
+
+    .hero-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--verde-medio);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      line-height: 1.2;
+      color: var(--verde-oscuro);
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--tinta-mid);
+      margin-bottom: 32px;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--verde-claro);
+      margin-bottom: 32px;
+    }
+
+    .hero-tagline {
+      font-style: italic;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--tinta-mid);
+      margin-bottom: 48px;
+      max-width: 380px;
+    }
+
+    .btn-comprar {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--crema);
+      background: var(--verde-oscuro);
+      padding: 16px 40px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-comprar:hover {
+      background: var(--verde-medio);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .btn-ebook-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-ebook {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--tinta-mid);
+      border: 1px solid rgba(52,79,30,0.35);
+      padding: 16px 40px;
+      border-radius: 2px;
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .btn-ebook-badge {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+      font-weight: 400;
+    }
+
+    /* ── SINOPSIS ── */
+    .sinopsis {
+      background: var(--verde-oscuro);
+      padding: 120px 40px;
+    }
+
+    .section-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--crema);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--verde-claro);
+      margin-bottom: 36px;
+    }
+
+    .sinopsis-quote {
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: var(--crema-oscura);
+      border-left: 3px solid var(--verde-claro);
+      padding-left: 24px;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .sinopsis-text {
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      color: var(--crema);
+      opacity: 0.88;
+      line-height: 1.85;
+    }
+
+    .sinopsis-text p + p {
+      margin-top: 20px;
+    }
+
+    /* ── AUTORA ── */
+    .autora {
+      background: var(--crema-suave);
+      padding: 120px 40px;
+      color: var(--tinta);
+    }
+
+    .autora-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .autora-foto-wrap {
+      position: relative;
+    }
+
+    .autora-foto-wrap::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: -16px;
+      bottom: -16px;
+      border: 1px solid rgba(107,148,72,0.4);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .autora-foto {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .autora-content .section-label {
+      color: var(--verde-claro);
+    }
+
+    .autora-content .section-title {
+      color: var(--verde-oscuro);
+    }
+
+    .autora-content .section-divider {
+      background: var(--verde-claro);
+    }
+
+    .autora-bio {
+      font-size: clamp(0.9rem, 1.4vw, 1rem);
+      color: var(--tinta-mid);
+      line-height: 1.85;
+    }
+
+    .autora-bio p + p {
+      margin-top: 18px;
+    }
+
+    .autora-cta {
+      margin-top: 48px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #111808;
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--crema);
+      margin-bottom: 8px;
+    }
+
+    .footer-sub {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-book {
+        padding: 80px 40px 40px;
+        order: 1;
+      }
+
+      .hero-book img {
+        max-width: 260px;
+      }
+
+      .hero-content {
+        padding: 32px 40px 80px;
+        order: 2;
+        text-align: center;
+      }
+
+      .hero-divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-tagline {
+        max-width: 100%;
+      }
+
+      .autora-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .autora-foto-wrap {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .autora-content {
+        text-align: center;
+      }
+
+      .autora-content .section-divider {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sinopsis { padding: 80px 24px; }
+      .autora { padding: 80px 24px; }
+      .hero-book { padding: 60px 24px 32px; }
+      .hero-content { padding: 24px 24px 60px; }
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-book">
+      <img src="images/portada.jpg" alt="Portada del libro Aceite y Sangre de Rosa María Córdoba" />
+    </div>
+    <div class="hero-content">
+      <p class="hero-label">Rosa María Córdoba</p>
+      <h1 class="hero-title">Aceite y Sangre</h1>
+      <p class="hero-subtitle">Voces de sanación</p>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">«A veces la vida no avisa: te empuja.<br>Y solo te queda seguir.»</p>
+      <div class="btn-group">
+        <a href="https://www.laclandestina.es/lote.php?ref=B1776769543641&art=aceite-sangre-voces-sanacion-rosa-maria-cordoba" target="_blank" rel="noopener" class="btn-comprar">Libro físico</a>
+        <div class="btn-ebook-wrap">
+          <a href="#ENLACE-EBOOK" class="btn-ebook">Ebook</a>
+          <span class="btn-ebook-badge">Próximamente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SINOPSIS ── -->
+  <section class="sinopsis">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">El libro</p>
+        <h2 class="section-title">Sobre la historia</h2>
+        <div class="section-divider"></div>
+      </div>
+      <blockquote class="sinopsis-quote reveal">
+        ¿Quién cuida a quien siempre cuida de todos?
+      </blockquote>
+      <div class="sinopsis-text reveal">
+        <p>Melina crece entre hospitales, silencios y responsabilidades que llegan demasiado pronto. Hija de una familia humilde marcada por la migración y el esfuerzo, aprende desde niña lo que significa cuidar… incluso antes de entenderse a sí misma. La enfermedad la acompaña desde el principio, pero también una determinación que no siempre se ve, porque muchas veces se esconde detrás del silencio para no preocupar a los demás.</p>
+        <p>De Barcelona al recuerdo de un pueblo andaluz lleno de historias que nadie quería contar, su vida se va tejiendo entre pérdidas, trabajo, maternidad y vocación. Como enfermera, sostiene vidas mientras la suya se tambalea: guardias interminables, pacientes que mueren entre sus manos, decisiones que pesan. Y, fuera del hospital, una realidad igual de dura: precariedad, injusticias, luchas colectivas y una familia que se rompe y se recompone una y otra vez.</p>
+        <p>Este libro no edulcora. Habla de lo que duele: del cuerpo que falla, del miedo, del cansancio, de todo lo que se carga en silencio. Pero también de lo que sostiene: los vínculos, la memoria, el amor que no siempre se dice, pero se demuestra en cada gesto.</p>
+        <p><em>Aceite y Sangre</em> es el retrato de una vida atravesada por el cuidado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OLIVOS ── -->
+  <div class="olivos">
+    <img src="images/olive-trees.jpg" alt="Olivos cargados de fruto" />
+    <div class="olivos-overlay">
+      <p>«Si ella ha podido, vosotras también.»</p>
+    </div>
+  </div>
+
+  <!-- ── AUTORA ── -->
+  <section class="autora">
+    <div class="autora-inner">
+      <div class="autora-foto-wrap reveal">
+        <img class="autora-foto" src="images/autora.jpeg" alt="Rosa María Córdoba, autora de Aceite y Sangre" />
+      </div>
+      <div class="autora-content">
+        <div class="reveal">
+          <p class="section-label">La autora</p>
+          <h2 class="section-title">Rosa María Córdoba</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="autora-bio reveal">
+          <p>Rosa María nació en Barcelona, en el seno de una familia muy humilde que emigró desde un pueblecito andaluz. Siempre tuvo una salud muy frágil, y desde los diez años cargó con responsabilidades que eran de adultos, cuidando de su madre enferma y de sus hermanos pequeños.</p>
+          <p>Estudió Enfermería en el Hospital de Sant Pau de Barcelona. Siempre tuvo la vocación de cuidar a los suyos y a sus pacientes con respeto y cariño. También heredó la enfermedad renal: su marido le donó un riñón hace diez años.</p>
+          <p>La pérdida de sus padres y la ruptura familiar la llevaron a una etapa durísima, marcada por la fibromialgia y episodios de Alzheimer. Decidió ponerse en terapia y fue entonces cuando empezó a escribir. Escribir este libro fue su terapia más fuerte: al sacar los recuerdos, descubrió un día que el dolor había desaparecido.</p>
+          <p>Hoy, su salud está al cien por ciento. <em>Aceite y Sangre</em> nació de esa experiencia, con la esperanza de que sirva a todas las personas que están en esa misma situación. «Si yo he podido, vosotras también.»</p>
+        </div>
+        <div class="autora-cta reveal">
+          <div class="btn-group">
+            <a href="https://www.laclandestina.es/lote.php?ref=B1776769543641&art=aceite-sangre-voces-sanacion-rosa-maria-cordoba" target="_blank" rel="noopener" class="btn-comprar">Libro físico</a>
+            <div class="btn-ebook-wrap">
+              <a href="#ENLACE-EBOOK" class="btn-ebook">Ebook</a>
+              <span class="btn-ebook-badge">Próximamente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <p class="footer-title">Aceite y Sangre</p>
+    <p class="footer-sub">Rosa María Córdoba · Voces de sanación</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
