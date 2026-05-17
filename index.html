@@ -543,6 +543,197 @@
       .video-section { padding: 80px 24px; }
     }
 
+    /* ── COOKIES BANNER ── */
+    #cc-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--verde-oscuro);
+      color: var(--crema);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      z-index: 9000;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+    }
+
+    #cc-banner.hidden { display: none; }
+
+    #cc-banner p {
+      flex: 1;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--crema);
+      opacity: 0.9;
+      min-width: 240px;
+    }
+
+    #cc-banner a {
+      color: var(--verde-claro);
+      text-decoration: underline;
+    }
+
+    .cc-btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cc-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 2px;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+    }
+
+    .cc-btn:hover { opacity: 0.8; }
+
+    .cc-btn-accept {
+      background: var(--verde-claro);
+      color: #fff;
+    }
+
+    .cc-btn-reject {
+      background: transparent;
+      color: var(--crema);
+      border: 1px solid rgba(244,237,211,0.35);
+    }
+
+    .cc-btn-prefs {
+      background: transparent;
+      color: var(--crema);
+      border: 1px solid rgba(244,237,211,0.35);
+    }
+
+    /* ── COOKIES MODAL ── */
+    #cc-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 9500;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #cc-modal-overlay.open { display: flex; }
+
+    #cc-modal {
+      background: var(--crema-suave);
+      border-radius: 4px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+    }
+
+    #cc-modal h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--verde-oscuro);
+      margin-bottom: 12px;
+    }
+
+    #cc-modal p {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      color: var(--tinta-mid);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .cc-category {
+      border-top: 1px solid rgba(26,42,16,0.1);
+      padding: 18px 0;
+    }
+
+    .cc-category:last-of-type { border-bottom: 1px solid rgba(26,42,16,0.1); }
+
+    .cc-category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .cc-category-title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--tinta);
+    }
+
+    .cc-category-desc {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      color: var(--tinta-mid);
+      line-height: 1.5;
+    }
+
+    /* Toggle switch */
+    .cc-toggle {
+      position: relative;
+      width: 42px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .cc-toggle input { display: none; }
+
+    .cc-toggle-slider {
+      position: absolute;
+      inset: 0;
+      background: #ccc;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .cc-toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 18px; height: 18px;
+      left: 3px; top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .cc-toggle input:checked + .cc-toggle-slider { background: var(--verde-claro); }
+    .cc-toggle input:checked + .cc-toggle-slider::before { transform: translateX(18px); }
+    .cc-toggle input:disabled + .cc-toggle-slider { opacity: 0.5; cursor: default; }
+
+    .cc-modal-btns {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .cc-modal-btns .cc-btn {
+      flex: 1;
+    }
+
+    .cc-modal-btns .cc-btn-accept {
+      background: var(--verde-oscuro);
+      color: var(--crema);
+    }
+
     /* ── REVEAL ── */
     .reveal {
       opacity: 0;
@@ -670,7 +861,55 @@
   <footer class="footer">
     <p class="footer-title">Aceite y Sangre</p>
     <p class="footer-sub">Rosa María Córdoba · Voces de sanación</p>
+    <p style="margin-top:16px; font-family:'Jost',sans-serif; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;">
+      <a href="#" onclick="ccOpenPrefs();return false;" style="color:var(--verde-claro); text-decoration:none;">Cookies</a>
+    </p>
   </footer>
+
+  <!-- ── COOKIE BANNER ── -->
+  <div id="cc-banner" class="hidden">
+    <p>Usamos cookies propias y de terceros (vídeo de YouTube) para mejorar tu experiencia. Puedes aceptarlas, rechazarlas o configurarlas. <a href="#" onclick="ccOpenPrefs();return false;">Más información</a></p>
+    <div class="cc-btns">
+      <button class="cc-btn cc-btn-reject" onclick="ccReject()">Rechazar todo</button>
+      <button class="cc-btn cc-btn-prefs" onclick="ccOpenPrefs()">Preferencias</button>
+      <button class="cc-btn cc-btn-accept" onclick="ccAccept()">Aceptar todo</button>
+    </div>
+  </div>
+
+  <!-- ── COOKIE MODAL ── -->
+  <div id="cc-modal-overlay">
+    <div id="cc-modal">
+      <h2>Preferencias de cookies</h2>
+      <p>Puedes elegir qué cookies aceptas. Las necesarias no se pueden desactivar.</p>
+
+      <div class="cc-category">
+        <div class="cc-category-header">
+          <span class="cc-category-title">Necesarias</span>
+          <label class="cc-toggle">
+            <input type="checkbox" checked disabled />
+            <span class="cc-toggle-slider"></span>
+          </label>
+        </div>
+        <p class="cc-category-desc">Imprescindibles para el funcionamiento de la web. No recogen datos personales.</p>
+      </div>
+
+      <div class="cc-category">
+        <div class="cc-category-header">
+          <span class="cc-category-title">Marketing (YouTube)</span>
+          <label class="cc-toggle">
+            <input type="checkbox" id="cc-toggle-marketing" />
+            <span class="cc-toggle-slider"></span>
+          </label>
+        </div>
+        <p class="cc-category-desc">El vídeo incrustado de YouTube puede guardar cookies en tu dispositivo al reproducirlo.</p>
+      </div>
+
+      <div class="cc-modal-btns">
+        <button class="cc-btn cc-btn-reject" onclick="ccReject()">Rechazar todo</button>
+        <button class="cc-btn cc-btn-accept" onclick="ccSavePrefs()">Guardar preferencias</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     const observer = new IntersectionObserver(entries => {
@@ -693,6 +932,41 @@
     document.addEventListener('click', e => {
       if (!e.target.closest('.btn-dropdown-wrap')) closeAllDropdowns();
     });
+
+    // ── COOKIES ──
+    const CC_KEY = 'as_cc';
+
+    function ccGetPrefs() {
+      try { return JSON.parse(localStorage.getItem(CC_KEY)) || null; } catch(e) { return null; }
+    }
+
+    function ccSave(marketing) {
+      localStorage.setItem(CC_KEY, JSON.stringify({ m: marketing ? '1' : '0' }));
+      document.getElementById('cc-banner').classList.add('hidden');
+      document.getElementById('cc-modal-overlay').classList.remove('open');
+    }
+
+    function ccAccept() { ccSave(true); }
+    function ccReject() { ccSave(false); }
+
+    function ccSavePrefs() {
+      ccSave(document.getElementById('cc-toggle-marketing').checked);
+    }
+
+    function ccOpenPrefs() {
+      const prefs = ccGetPrefs();
+      document.getElementById('cc-toggle-marketing').checked = prefs ? prefs.m === '1' : false;
+      document.getElementById('cc-modal-overlay').classList.add('open');
+    }
+
+    document.getElementById('cc-modal-overlay').addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+
+    // Mostrar banner si no hay preferencias guardadas
+    if (!ccGetPrefs()) {
+      document.getElementById('cc-banner').classList.remove('hidden');
+    }
   </script>
 </body>
 </html>
