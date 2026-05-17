@@ -168,12 +168,15 @@
     /* ── DROPDOWN COMPRAR ── */
     .btn-dropdown-wrap {
       position: relative;
-      display: inline-block;
+      display: flex;
+      flex-direction: column;
     }
 
     .btn-comprar {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      flex: 1;
       gap: 10px;
       font-family: 'Jost', sans-serif;
       font-weight: 500;
@@ -258,6 +261,7 @@
     .btn-ebook {
       display: inline-flex;
       align-items: center;
+      flex: 1;
       font-family: 'Jost', sans-serif;
       font-weight: 500;
       font-size: 0.85rem;
