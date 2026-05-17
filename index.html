@@ -169,14 +169,12 @@
     .btn-dropdown-wrap {
       position: relative;
       display: flex;
-      flex-direction: column;
     }
 
     .btn-comprar {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      flex: 1;
       gap: 10px;
       font-family: 'Jost', sans-serif;
       font-weight: 500;
@@ -191,6 +189,7 @@
       transition: background 0.2s;
       cursor: pointer;
       border: none;
+      width: 100%;
     }
 
     .btn-comprar:hover {
@@ -254,14 +253,19 @@
       align-items: stretch;
     }
 
+    .btn-group > * {
+      display: flex;
+    }
+
     .btn-ebook-wrap {
       display: flex;
     }
 
     .btn-ebook {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      flex: 1;
+      justify-content: center;
+      width: 100%;
       font-family: 'Jost', sans-serif;
       font-weight: 500;
       font-size: 0.85rem;
